@@ -1,0 +1,14 @@
+<p>say{{ childMassage }}</p>
+<ng-template [ngIf]="true">
+  <input #phone placeholder="phone" type="text" [(ngModel)]="phoneNumber" />
+  <p>{{ phone.value }}</p>
+</ng-template>
+<input placeholder="phone" type="text" [(ngModel)]="number2" />
+<p parentDirect>{{ number2 }}</p>
+<!-- <button (click)="getPhoneNum(phone.value)">call</button> -->
+<ng-content [question]></ng-content>
+<ng-content [answer]></ng-content>
+<button (click)="increment()">Increment</button>
+<button (click)="decrement()">Increment</button>
+<p [style.font-size.px]="size">Name B {{ size }}</p>
+<button (click)="sendMassage()">sendMassage</button>

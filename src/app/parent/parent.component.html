@@ -1,0 +1,25 @@
+<app-child
+  [childMassage]="'Omg'"
+  (receiver)="receiveMassage($event)"
+  (showReceiver)="receiveMassage($event)"
+  [size]="fontsize"
+  (sizeChange)="(fontsize)"
+>
+  <h1 [ngClass]="showMessage ? 'who-r-u' : ''" question>who r u?</h1>
+  <h4 [ngStyle]="currentStyles" answer>I don't know</h4>
+  <h5 *ngFor="let person of names; let index = index">
+    {{ index + 1 }} {{ person.name }} {{ person.age }}
+  </h5>
+</app-child>
+<p [style.font-size.px]="fontsize">Name C</p>
+<p>{{ massage }}</p>
+<p>{{ massageFromChild }}</p>
+<button (click)="onClickBoolean($event)">click show</button>
+<p *ngIf="showMessage">{{ showMessage }}</p>
+<span [ngSwitch]="switchObject.age">
+  <p *ngSwitchCase="10">teenage</p>
+  <p *ngSwitchCase="22">Youth</p>
+  <p *ngSwitchCase="50">Old</p>
+  <p *ngSwitchDefault>Age</p>
+</span>
+<p>{{ dateToday | date }}</p>
