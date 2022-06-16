@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-child',
@@ -12,6 +13,7 @@ export class ChildComponent implements OnInit {
   number2?: string;
   @Output() receiver = new EventEmitter<string>();
   @Output() sizeChange = new EventEmitter<number>();
+  id = this.route.snapshot.paramMap.get('id') || 0;
   getPhoneNum = (value: string) => {
     this.phoneNumber = value;
   };
@@ -26,7 +28,7 @@ export class ChildComponent implements OnInit {
     this.size = this.size - value;
     this.sizeChange.emit(this.size);
   };
-  // constructor() {}
+  constructor(private route: ActivatedRoute) {}
   sendMassage = () => {
     this.receiver.emit('namesthe');
   };

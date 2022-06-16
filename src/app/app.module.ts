@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ParentDirective } from './parent/parent.directive';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { ParentDirective } from './parent/parent.directive';
     ChildComponent,
     ParentDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

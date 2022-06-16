@@ -1,2 +1,41 @@
-<app-parent></app-parent>
+<nav>
+  <ul>
+    <li><a routerLink="/first">First</a></li>
+    <li><a routerLink="/parent">Parent</a></li>
+    <li><a routerLink="/child">Child</a></li>
+    <li><a routerLink="/child/45">Child</a></li>
+  </ul>
+</nav>
+<p>{{ model | json }}</p>
+<form #petForm="ngForm" (ngSubmit)="clickSubmit()">
+  <div>
+    <label for="name"> Name </label>
+    <input
+      type="text"
+      id="name"
+      [(ngModel)]="model.name"
+      name="name"
+      required
+    />
+  </div>
+  <div>
+    <label for="specie"> Specie </label>
+    <select id="specie" [(ngModel)]="model.specie" name="speice" required>
+      <option *ngFor="let s of species" [value]="s">{{ s }}</option>
+    </select>
+  </div>
+  <button [disabled]="!petForm.form.valid" type="submit">Submit</button>
+</form>
+<p>{{ formNamings.value | json }}</p>
+<form [formGroup]="formNamings" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstName">firstName</label>
+    <input type="text" id="firstName" formControlName="firstName" />
+  </div>
+  <div>
+    <label for="LastName">LastName</label>
+    <input type="text" id="lastName" formControlName="lastName" />
+  </div>
+  <button type="submit" [disabled]="!formNamings.valid">submit</button>
+</form>
 <router-outlet></router-outlet>
